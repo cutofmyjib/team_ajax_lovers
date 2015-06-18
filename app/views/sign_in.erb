@@ -5,11 +5,11 @@
     <div class="errors"><%= @error %></div>
   <% end %>
 
-  <form id="sign-in" method="post" action="/sessions">
-    <label class="label" for="email">Email</label>
-    <input type="email" name="email" placeholder="e.g., me@example.com" value="<%= @email %>"><br>
-    <label class="label" for="password">Password</label>
-    <input type="password" name="password" placeholder="6 or more characters">
+  <form id="sign-in" method="post" action="/signin">
+    <label class="label" for="username">Email</label>
+    <input type="text" name="username" placeholder="jabbadahut" value="<%= @user.user_name %>"><br>
+    <label class="label" for="password_hash">Password</label>
+    <input type="password" name="password_hash" placeholder="6 or more characters">
     <br>
     <div class="submit"><input type="submit" value="Sign In"></div>
   </form>
