@@ -15,9 +15,10 @@ get '/signin' do
 end
 
 post '/signin' do
-  @user = User.where(username: params[:username]).first if params[:username]
+  @user = User.where(user_name: params[:user_name]).first if params[:user_name]
 
   if @user && @user.password_hash == params[:password_hash]
+
     session[:user_id] = @user.id
     redirect '/surveys'
   else
@@ -36,21 +37,29 @@ get '/signup' do
 end
 
 post '/signup' do
+    p '*' * 100
+    p params
+    p '*' * 100
+    p session
 
-  if params[:]
-
-  @user = User.new(params[:user])
-  if @user.save
-    @user.id = session[:user_id]
-    redirect '/surveys'
+  if params[:user][:password_hash] == params[:password]
+    @user = User.new(params[:user])
+    if @user.save
+      @user.id = session[:user_id]
+      redirect '/surveys'
+    end
   end
+  @error = "Sorry! Your username, or password, or BOTH are incorrect."
+  erb :sign_up
 end
 
 
 
 
-delete '/sessions/:id' do
-  # sign-out -- invoked
+delete '/logout' do
+  session[:user_id] = nil
+
+  redirect '/'
 end
 
 #----------- USERS -----------
