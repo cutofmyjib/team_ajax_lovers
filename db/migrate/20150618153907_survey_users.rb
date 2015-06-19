@@ -1,6 +1,6 @@
 class SurveyUsers < ActiveRecord::Migration
   def change
-    create_table :survey_users, id: false do |t|
+    create_table :survey_users do |t|
       t.integer :user_id
       t.integer :survey_id
     end
