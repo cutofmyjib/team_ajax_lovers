@@ -1,0 +1,16 @@
+<h3><%=@survey.title%></h3>
+<h4> Author: <%= @survey.user.user_name %></h4>
+<h4> Last Updated: <%= @survey.updated_at %></h4>
+<form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/answers">
+  <% @survey.questions.each do |q| %>
+    <label for= "question"><%= q.question %></label>
+    <input type="text" name="questions[<%= q.id %>]" value="" >
+    <br>
+  <% end %>
+  <div class="submit"><input type="submit" value="Submit Questionnaire"></div>
+</form>
+
+
+<!--New question button for adding a new question -->
+<p><a href='/surveys/<%= @survey.id %>'>Cancel</a></p>
+

@@ -1,3 +1,4 @@
+
 get '/surveys' do
   if session[:user_id]
     @user = User.find(session[:user_id])
@@ -52,7 +53,6 @@ end
 
 get '/surveys/:survey_id' do #lists specific survey with questions
   @survey = Survey.find(params[:survey_id])
-
     erb :survey_edit
 end
 
@@ -60,3 +60,9 @@ end
 #   #db delete survey with id
 #   redirect '/list_surveys'
 # end
+
+get '/surveys/:survey_id/take' do
+  @survey = Survey.find(params[:survey_id])
+  erb :take_survey
+end
+

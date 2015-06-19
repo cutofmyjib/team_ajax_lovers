@@ -10,7 +10,7 @@
   </form>
 
 
-  <form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/questions">
+  <form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/questions/<%= @question.id %>">
     <input type="hidden" name="_method" value="DELETE">
     <div class="submit"><input type="submit" value="Delete"></div>
   </form>

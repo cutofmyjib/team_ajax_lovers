@@ -39,7 +39,7 @@ delete '/surveys/:survey_id/questions/:question_id' do
   @question = Question.find(params[:question_id])
 
   @question.destroy
-  redirect '/surveys/:id'
+  redirect "/surveys/#{params[:survey_id]}"
 end
 
 
