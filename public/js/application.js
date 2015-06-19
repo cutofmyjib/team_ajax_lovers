@@ -1,3 +1,4 @@
+
 // var clickListener = function(clickTarget) {
 //   $('.survey_home').on('click', clickTarget, function(event) {
 //     event.preventDefault();
@@ -40,6 +41,7 @@ $(document).ready(function () {
             console.log(event);
 
        form_node.show();
+       console.log('you made it here 1');
     // var node = $(this).parent();
     // node.animate({opacity: 0.0,},
     //   'slow', function() { node.hide();});
@@ -52,7 +54,7 @@ $(document).ready(function () {
 
       //This is the new question get route
       var path = $('#new_question').attr('href');
-      console.log('you made it here 1');
+
       var request = $.ajax({
         url: path,
         type: "GET",

@@ -2,7 +2,7 @@
 get '/surveys' do
   if session[:user_id]
     @user = User.find(session[:user_id])
-    @surveys = @user.surveys
+    @surveys = Survey.where(user_id: @user.id)
     erb :survey
   else
     redirect '/signin'
@@ -42,6 +42,9 @@ end
 get '/surveys/:survey_id/edit' do
  @survey = Survey.find(params[:survey_id])
 
+ @user_id = session[:user_id]
+
+ @surveys = Survey.where(user_id: session[:user_id])
   p "hi"
   erb :survey_edit
 end
