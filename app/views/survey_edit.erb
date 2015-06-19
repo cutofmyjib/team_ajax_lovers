@@ -6,15 +6,16 @@
   <!--display survey questions if any....-->
   <% if (questions = @survey.questions).length !=0 %>
     <% @survey.questions.each do |q| %>
-      <div class="question"> <a href="/surveys/<%= @survey.id %>/questions/<%= q.id %>/edit"><%= q.question %></a></div>
+    <div class="question"> <a href="/surveys/<%= @survey.id %>/questions/<%= q.id %>/edit"><%= q.question %></a></div>
       <br>
     <%  end %>
   <%  end %>
-</div>
-<!--New question button for adding a new question -->
 <div class="save_new_question">
 
 </div>
+</div>
+<!--New question button for adding a new question -->
+
 
 <a id="new_question" href='/surveys/<%= @survey.id %>/questions/new'>New Question</a>
 
