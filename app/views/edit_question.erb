@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Edit Your Question</h1>
+  <%=@errors%>
+
+  <form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/questions">
+    <input type="hidden" name="_method" value="PUT">
+    <label class="label" for="question">Question</label>
+    <input type="text" name="question" placeholder="Why" >
+    <div class="submit"><input type="submit" value="Edit"></div>
+  </form>
+
+
+  <form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/questions">
+    <input type="hidden" name="_method" value="DELETE">
+    <div class="submit"><input type="submit" value="Delete"></div>
+  </form>
+
+
+
+</div>

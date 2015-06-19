@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>New Question</h1>
+  <%=@errors%>
+
+  <form id="sign-up" method="post" action="/surveys/<%= @question.survey_id %>/questions">
+    <label class="label" for="question">Question</label>
+    <input type="text" name="question" value="<%= @question.question %>" >
+    <div class="submit"><input type="submit" value="Submit"></div>
+  </form>
+
+</div>
+

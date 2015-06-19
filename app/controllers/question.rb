@@ -1,28 +1,43 @@
 
 get 'surveys/:survey_id/questions/new' do
-    #id in url
-    #build form
-    erb :edit_question
+
+  @survey = Survey.find(params[:survey_id])
+
+  erb :new_question
 end
 
-get '/questions/:id/edit' do
-  #build the form, send to user, put id in url
-  #
-    erb :edit_question
+post 'surveys/:survey_id/questions' do
+  @question = Question.new(params[:question])
+
+  if @question.save
+    redirect '/surveys/<%= @question.survey_id %>'
+  else
+    @errors = "Your question did not save!"
+    @survey = Survey.find(params[:survey_id])
+    erb :new_question
+  end
 end
 
-post '/surveys/:survey_id/questions' do
-    #read params, create a new question object
-    redirect '/surveys/:id'
+get '/surveys/:survey_id/questions/:question_id/edit' do
+
+  @question = Question.find(params[:question_id])
+
+  erb :edit_question
 end
 
-put '/surveys/:survey_id/questions/:id' do
-  #pull params, update  database
-  redirect '/surveys/:id'
+put '/surveys/:survey_id/questions/:question_id' do
+
+  @question = Question.update_attributes(params[:question])
+
+  redirect '/surveys/<%= @question.survey_id %>/questions'
+
 end
 
-delete '/surveys/:survey_idgit /questions/:id' do
-  #db delete qurestion with id
+delete '/surveys/:survey_id/questions/:question_id' do
+  @question = Question.find(params[:question_id])
+
+  @question.destroy
+
   redirect '/surveys/:id'
 end
 
