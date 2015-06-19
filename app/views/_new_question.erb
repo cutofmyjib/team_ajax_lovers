@@ -2,11 +2,10 @@
   <h1>New Question</h1>
   <%=@errors%>
 
-  <form id="post_question" method="post" action="/surveys/<%= @survey.id %>/questions">
+  <form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/questions">
     <label class="label" for="question">Question</label>
     <input type="text" name="question" value="" >
     <div class="submit"><input type="submit" value="Submit"></div>
   </form>
 
 </div>
-

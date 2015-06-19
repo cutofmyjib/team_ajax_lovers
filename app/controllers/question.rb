@@ -2,15 +2,22 @@
 get '/surveys/:survey_id/questions/new' do
 
   @survey = Survey.find(params[:survey_id])
-  erb :new_question
+  # content_type :json
+
+  erb(:_new_question, layout: false, locals: {survey_id: @survey.id}).to_json #Why do we need to json?, What do locals do? What the fuck
+
+  # erb :new_question
 end
 
 post '/surveys/:survey_id/questions' do
+
+  # render new question below Survey, and above the new question button
+  # question: this is where the question goes
+
   @question = Question.new(question: params[:question], survey_id: params[:survey_id])
-  p "*" * 100
-  p params
 
   if @question.save
+
     redirect "/surveys/#{@question.survey_id}"
   else
     @errors = "Your question did not save!"

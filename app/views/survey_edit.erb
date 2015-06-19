@@ -1,3 +1,4 @@
+<div class="survey_home">
 <h3><%=@survey.title%></h3>
 <h4> Author: <%= @survey.user.user_name %></h4>
 <h4> Last Updated: <%= @survey.updated_at %></h4>
@@ -9,6 +10,11 @@
       <br>
     <%  end %>
   <%  end %>
-
+</div>
 <!--New question button for adding a new question -->
-<p><a href='/surveys/<%= @survey.id %>/questions/new'>New Question</a></p>
+<div class="save_new_question">
+
+</div>
+
+<a id="new_question" href='/surveys/<%= @survey.id %>/questions/new'>New Question</a>
+
