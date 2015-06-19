@@ -1,11 +1,14 @@
 require 'faker'
 
-# create a few users
 
-#TODO: Once you have implemented BCrypt - you can use these to seed your database.
+15.times do |n|
+  survey = Survey.new
+  survey.title = Faker::Company.catch_phrase
+  survey.save
+end
 
-
-# User.create :name => 'Dev Bootcamp Student', :email => 'me@example.com', :password => 'password'
-# 5.times do
-#   User.create :name => Faker::Name.name, :email => Faker::Internet.email, :password => 'password'
-# end
+10.times do |n|
+  question = Question.new
+  question.question = Faker::Lorem.sentence
+  question.save
+end
