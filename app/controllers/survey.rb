@@ -1,27 +1,36 @@
-
 get '/surveys' do
   #build a list
-
-  erb :survey
+  #session has user id
+  @user = User.find(session[:user_id])
+  @surveys = @user.surveys
+  erb :display_survey
 end
 
-get '/surveys/new'  do  #request html form for new survey
-  #pass anything you need for survey id
+get '/surveys/new'  do    #request html form for new survey
 
+  @user = User.find(session[:user_id])
   erb :new_survey_form
 end
 
-post '/surveys' do
+post '/surveys' do        #read the form
         #load info from params
         #create model object
         #@survey_id = Survey.new
-        #go to survey
+        #go to that survey
 
   redirect '/surveys/#{survey_id}/edit'
 end
 
-get '/surveys/:id' do #lists specific survey with questions
+get '/surveys/#{survey_id}/edit'
+  #build & put up the edit form
+  erb :
+end
 
+put '/surveys/:id' do
+
+end
+get '/surveys/:id' do #lists specific survey with questions
+    session[:survey_id] = params[:id]
   erb :display_survey
 end
 
