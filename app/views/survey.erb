@@ -1,7 +1,7 @@
 <center>
-<h3>Welcome to the list_surveys erb!</h3>
+<h3>Welcome to Wolf Job Surveys!</h3>
 
-<p> we are going to list all your surveys here </p>
+
 
 <%if @surveys%>
   <%@surveys.each do |survey| %>
@@ -9,5 +9,13 @@
   <%end%>
 <%end%>
 
-<p><a href='/surveys/new'>New Survey</a></p>
+<p><a id='new_survey_link' href='/surveys/new'>New Survey</a></p>
+
+ <form id='invisible_survey_form' class="form" action="/surveys" method="post">
+  <div class="form-group">
+    <label for="title">Survey Title:</label>
+    <input type="text" class="form-control" name="title" value="">
+  </div>
+  <button type="submit" class="btn btn-default">Create Wolfy Survey</button>
+  </form>
 </center>

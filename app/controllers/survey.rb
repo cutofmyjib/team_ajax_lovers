@@ -67,7 +67,8 @@ get '/surveys/:survey_id/take' do
 end
 
 post '/surveys/:survey_id/answers' do
-  user_survey_taker = User.create!(email: "email@email.com", name: "survey_taker", user_name: "survey_taker")
+    @survey = Survey.find(params[:survey_id])
+user_survey_taker = User.create!(email: "email@email.com", name: "survey_taker", user_name: "survey_taker")
   #p user_survey_taker
    survey_user= SurveyUser.new(survey_id: params[:survey_id], user_id: user_survey_taker.id)
    # puts "*" * 100

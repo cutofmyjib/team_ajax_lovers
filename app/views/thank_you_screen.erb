@@ -1,8 +1,15 @@
-<center>
 
-<h4>Thanks for taking the time to complete our survey!</h4>
+<h3><%=@survey.title%></h3>
+<div class="take-answer">
+  <h4> Author: <%= @survey.user.user_name %></h4>
+  <h4> Last Updated: <%= @survey.updated_at %></h4>
+  </div>
+  <center>
+<br>
+<br>
+<h3>Thanks for taking the time to complete our survey!</h3>
 
-<img src="../../img/survey_walrus.png">
+  <img src="/survey_walrus_small.png" alt="wolf">
 
 <a href="/surveys">Back to the homepage</a>
 </center>
