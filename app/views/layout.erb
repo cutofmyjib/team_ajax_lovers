@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/css/normalize.css">
-  
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
@@ -18,14 +18,14 @@
     <ul>
       <% if current_user %>
         <li>
-          <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
+          <form id="sign-out" action="/logout" method="post">
             <input name="_method" type="hidden" value="delete" />
             <input type="submit" value="Sign Out">
           </form>
         </li>
       <% else %>
-        <li><a href="/sessions/new">Sign In</a></li>
-        <li><a href="/users/new">Sign Up</a></li>
+        <li><a href="/signin">Sign In</a></li>
+        <li><a href="/signup">Sign Up</a></li>
       <% end %>
     </ul>
   </nav>
