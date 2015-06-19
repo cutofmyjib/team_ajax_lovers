@@ -66,3 +66,8 @@ get '/surveys/:survey_id/take' do
   erb :take_survey
 end
 
+post '/surveys/:survey_id/answers' do
+  puts "*" * 100
+  puts params
+  redirect  '/surveys'
+end
