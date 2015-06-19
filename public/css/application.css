@@ -1,3 +1,25 @@
+#invisible_survey_form {
+  display: none;
+}
+
+#thanks {
+  opacity: 0.0;
+}
+.question-style {
+  width: 300px;
+}
+.q-and-a {
+    margin: 1em;
+
+}
+.answer-style {
+  width: 500px;
+}
+.take-answer {
+  background-color: #bbbbbb;
+  padding:1em;
+}
+
 .container {
   margin: 20px auto;
   width: 800px;

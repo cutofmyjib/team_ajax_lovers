@@ -1,16 +1,30 @@
 <h3><%=@survey.title%></h3>
-<h4> Author: <%= @survey.user.user_name %></h4>
-<h4> Last Updated: <%= @survey.updated_at %></h4>
-<form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/answers">
+<div class="take-answer">
+  <h4> Author: <%= @survey.user.user_name %></h4>
+  <h4> Last Updated: <%= @survey.updated_at %></h4>
+</div>
+<br>
+<form id="survey-questions" method="post" action="/surveys/<%= @survey.id %>/answers">
   <% @survey.questions.each do |q| %>
-    <label for= "question"><%= q.question %></label>
-    <input type="text" name="questions[<%= q.id %>]" value="" >
+  <div class="q-and-a">
+    <label class="question-style" for= "question"><%= q.question %></label>
+    <input class="answer-style" type="text" name="questions[<%= q.id %>]" value="" >
     <br>
+  </div>
   <% end %>
-  <div class="submit"><input type="submit" value="Submit Questionnaire"></div>
+  <div id="take-submit" class="submit"><input type="submit" value="Submit Questionnaire"></div>
+  <br>
+  <p><a href='/surveys/<%= @survey.id %>'>Cancel</a></p>
 </form>
 
 
 <!--New question button for adding a new question -->
-<p><a href='/surveys/<%= @survey.id %>'>Cancel</a></p>
+
+<div id='thanks'>
+  <center>
+    <br>
+  <h3>Thanks for taking the time to complete our survey!</h3>
+  <img src="/survey_walrus_small.png" alt="wolf">
+</center>
+</div>
 

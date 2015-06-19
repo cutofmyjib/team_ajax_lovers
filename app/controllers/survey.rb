@@ -67,7 +67,11 @@ get '/surveys/:survey_id/take' do
 end
 
 post '/surveys/:survey_id/answers' do
-  puts "*" * 100
-  puts params
-  redirect  '/surveys'
+    @survey = Survey.find(params[:survey_id])
+user_survey_taker = User.create!(email: "email@email.com", name: "survey_taker", user_name: "survey_taker")
+  #p user_survey_taker
+   survey_user= SurveyUser.new(survey_id: params[:survey_id], user_id: user_survey_taker.id)
+   # puts "*" * 100
+  # p survey_user
+    erb :thank_you_screen #redirect to a thank you page (12:09pm - e - timeboxing this shit and moving on to AJAX. Need to redirect to thank you screen and a screen that prints out to all asnwers )
 end
