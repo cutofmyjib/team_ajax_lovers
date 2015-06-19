@@ -1,5 +1,5 @@
 
-get '/questions/new' do
+get 'surveys/:survey_id/questions/new' do
     #id in url
     #build form
     erb :edit_question
@@ -11,17 +11,17 @@ get '/questions/:id/edit' do
     erb :edit_question
 end
 
-post 'questions/:id/edit' do
+post '/surveys/:survey_id/questions' do
     #read params, create a new question object
     redirect '/surveys/:id'
 end
 
-put '/questions/:id' do
+put '/surveys/:survey_id/questions/:id' do
   #pull params, update  database
   redirect '/surveys/:id'
 end
 
-delete '/questions/:id' do
+delete '/surveys/:survey_idgit /questions/:id' do
   #db delete qurestion with id
   redirect '/surveys/:id'
 end
