@@ -21,7 +21,7 @@ put '/surveys/:survey_id/questions/:id' do
   redirect '/surveys/:id'
 end
 
-delete '/surveys/:survey_idgit /questions/:id' do
+delete '/surveys/:survey_id/questions/:id' do
   #db delete qurestion with id
   redirect '/surveys/:id'
 end

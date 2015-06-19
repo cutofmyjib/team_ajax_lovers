@@ -1,6 +1,13 @@
-<div class="container">
+<center>
+<h3>Welcome to the list_surveys erb!</h3>
 
-  <%# TODO: 
-  1. If user is not signed in - display "Welcome".
-  2. If user is signed in then  display all users %>
-  </div>
+<p> we are going to list all your surveys here </p>
+
+<%if @surveys%>
+  <%@surveys.each do |survey| %>
+    <%=survey.title%>
+  <%end%>
+<%end%>
+
+<p><a href='/surveys/new'>New Survey</a></p>
+</center>

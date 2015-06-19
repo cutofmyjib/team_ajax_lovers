@@ -1,0 +1,13 @@
+<h3><%=@survey.title%></h3>
+<h4> Author: <%= @survey.user.user_name %></h4>
+<h4> Last Updated: <%= @survey.updated_at %></h4>
+
+  <!--display survey questions if any....-->
+  <% if (questions = @survey.questions).length !=0 %>
+    <% @survey.questions.each do |q| %>
+      <div class="question"> <a href="#">q.question</a></div>
+      <br>
+    <%  end %>
+  <%  end %>
+
+<!--New question button for adding a new question -->

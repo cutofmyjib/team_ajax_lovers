@@ -1,7 +1,7 @@
 get '/' do
   # render home page
  #TODO: Show all users if user is signed in
-  erb :index
+  redirect '/signin'
 end
 
 #----------- SESSIONS -----------
@@ -45,7 +45,8 @@ post '/signup' do
   if params[:user][:password_hash] == params[:password]
     @user = User.new(params[:user])
     if @user.save
-      @user.id = session[:user_id]
+      session[:user_id] = @user.id
+      #@user.id = session[:user_id]
       redirect '/surveys'
     end
   end

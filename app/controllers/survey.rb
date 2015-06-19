@@ -1,40 +1,61 @@
 get '/surveys' do
-  #build a list
-  #session has user id
-  @user = User.find(session[:user_id])
-  @surveys = @user.surveys
-  erb :display_survey
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    @surveys = @user.surveys
+    erb :survey
+  else
+    redirect '/signin'
+  end
 end
 
 get '/surveys/new'  do    #request html form for new survey
 
-  @user = User.find(session[:user_id])
-  erb :new_survey_form
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    puts '*' * 50
+    p session
+    puts '*' * 50
+    erb :new_survey_form
+  else
+    puts '*' * 50
+    p "you got no session"
+  end
 end
 
 post '/surveys' do        #read the form
-        #load info from params
-        #create model object
-        #@survey_id = Survey.new
-        #go to that survey
+        # survey_title = params[:title]
+        @survey = Survey.create(title: params[:title],user_id: session[:user_id])
 
-  redirect '/surveys/#{survey_id}/edit'
-end
+        # if @survey.save
 
-get '/surveys/#{survey_id}/edit'
-  #build & put up the edit form
-  erb :
-end
-
-put '/surveys/:id' do
+        #   @survey_id = @survey.id
+          #go to that survey
+          redirect "/surveys/#{@survey.id}/edit"
+        # else
+        #   @errors = "no survey found"
+        #   redirect '/surveys'
+        # end
 
 end
-get '/surveys/:id' do #lists specific survey with questions
-    session[:survey_id] = params[:id]
-  erb :display_survey
+
+get '/surveys/:survey_id/edit' do
+ @survey = Survey.find(params[:survey_id])
+
+  p "hi"
+  erb :survey_edit
 end
 
-delete '/survey/:id' do
-  #db delete survey with id
-  redirect '/surveys'
-end
+# put '/surveys/:id' do #update an edited survey
+#   #database update
+#   redirect '/surveys/:id'
+# end
+
+# get '/surveys/:id' do #lists specific survey with questions
+#     session[:survey_id] = params[:id]
+#   erb :display_survey
+# end
+
+# delete '/survey/:id' do
+#   #db delete survey with id
+#   redirect '/list_surveys'
+# end
