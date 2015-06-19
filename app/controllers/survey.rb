@@ -50,10 +50,11 @@ end
 #   redirect '/surveys/:id'
 # end
 
-# get '/surveys/:id' do #lists specific survey with questions
-#     session[:survey_id] = params[:id]
-#   erb :display_survey
-# end
+get '/surveys/:survey_id' do #lists specific survey with questions
+  @survey = Survey.find(params[:survey_id])
+
+    erb :survey_edit
+end
 
 # delete '/survey/:id' do
 #   #db delete survey with id

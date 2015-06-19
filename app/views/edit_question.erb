@@ -2,11 +2,11 @@
   <h1>Edit Your Question</h1>
   <%=@errors%>
 
-  <form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/questions">
+  <form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/questions/<%= @question.id %>">
     <input type="hidden" name="_method" value="PUT">
     <label class="label" for="question">Question</label>
-    <input type="text" name="question" placeholder="Why" >
-    <div class="submit"><input type="submit" value="Edit"></div>
+    <input type="text" name="question" placeholder="<%= @question.question %>" >
+    <div class="submit"><input type="submit" value="Update"></div>
   </form>
 
 

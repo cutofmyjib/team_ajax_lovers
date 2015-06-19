@@ -2,9 +2,9 @@
   <h1>New Question</h1>
   <%=@errors%>
 
-  <form id="sign-up" method="post" action="/surveys/<%= @question.survey_id %>/questions">
+  <form id="sign-up" method="post" action="/surveys/<%= @survey.id %>/questions">
     <label class="label" for="question">Question</label>
-    <input type="text" name="question" value="<%= @question.question %>" >
+    <input type="text" name="question" value="" >
     <div class="submit"><input type="submit" value="Submit"></div>
   </form>
 
