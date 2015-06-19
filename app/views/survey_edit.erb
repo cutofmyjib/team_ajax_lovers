@@ -1,3 +1,4 @@
+<div id="section">
 <div class="survey_home">
 <h3><%=@survey.title%></h3>
 <h4> Author: <%= @survey.user.user_name %></h4>
@@ -6,7 +7,9 @@
   <!--display survey questions if any....-->
   <% if (questions = @survey.questions).length !=0 %>
     <% @survey.questions.each do |q| %>
-    <div class="question"> <a href="/surveys/<%= @survey.id %>/questions/<%= q.id %>/edit"><%= q.question %></a></div>
+    <div class="well">
+      <div class="question"> <a href="/surveys/<%= @survey.id %>/questions/<%= q.id %>/edit"><%= q.question %></a></div>
+    </div>
       <br>
     <%  end %>
   <%  end %>
@@ -17,5 +20,6 @@
 <!--New question button for adding a new question -->
 
 
-<a id="new_question" href='/surveys/<%= @survey.id %>/questions/new'>New Question</a>
+<a id="new_question" href='/surveys/<%= @survey.id %>/questions/new' class="btn btn-warning">New Question</a>
 
+</div>
